@@ -52,13 +52,13 @@ $catalog->addProduct($toy1);
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Shop</title>
+    <title>NotDarkWeb</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">AmazzaCheShop</a>
+          <a class="navbar-brand" href="#">NotDarkWeb</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -124,6 +124,7 @@ $catalog->addProduct($toy1);
                             <img src="<?= $product->getImage()?>" class="card-img-top" alt="...">
                             <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title fw-bold"><?= $product->getName() ?></h5>
+                                <span><?= $product->getCategory()?></span>
                                 <span class="prod-price"><?= $product->getPrice()?></span>
                                 <p class="card-text"><?= $product->getDescription()?></p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
