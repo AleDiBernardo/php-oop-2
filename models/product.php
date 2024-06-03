@@ -5,7 +5,9 @@ class Product {
 
     private string $name;
     private int $price;
+    private string $description;
     private string $category;
+    private array $validCategory = ["Gatti","Cani"];
 
 
 
@@ -13,7 +15,7 @@ class Product {
     {
         $this->name = $_name;
         $this->price = $_price;
-        $this->category = $_category;
+        $this->setCategory($_category);
     }
 
     /**
@@ -66,7 +68,37 @@ class Product {
      */ 
     public function setCategory($category)
     {
+
+        $flag = false;
+
+        foreach($this->validCategory as $curCategory){
+            if($category === $curCategory){
+                $flag = true;
+            }
+        }
+        if (!$flag) {
+            throw new Exception("Category not found");
+        } 
+
         $this->category = $category;
+
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
     }
 }
