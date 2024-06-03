@@ -5,7 +5,7 @@ class Product {
 
     private string $name;
     private int $price;
-    private string $description;
+    private string $description = "";
     private string $category;
     private string $image;
     private array $validCategory = ["Gatti","Cani","All"];
@@ -92,6 +92,10 @@ class Product {
      */ 
     public function getDescription()
     {
+        if ($this->description === "") {
+            $this->description = "Not Available";  
+        
+        }
         return $this->description;
     }
 
@@ -101,9 +105,19 @@ class Product {
      */ 
     public function setDescription($description)
     {
+
+        
         $this->description = $description;
 
     
     }
 
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        return $this->image;
+    }
 }

@@ -8,19 +8,26 @@ require_once __DIR__ . "/models/toy.php";
 
 $catalog = new Catalog();
 
-$food1 = new Food("Cibo per gatto", 14, "Gatti", "immagine", "2024-03-10", 500);
-$toy1 = new Toy("Ball", 23, "All", "immagine", "Plastic", false);
-$toy2 = new Toy("Bone", 10, "All", "immagine", "Plastic", false);
+$food1 = new Food("Cibo per gatto", 14, "Gatti", "https://picsum.photos/200/150?random=1", "2024-03-10", 500);
+$food1->setDescription("I'm from India, here food is good");
+
+$toy1 = new Toy("Ball", 23, "All", "https://picsum.photos/200/150?random=2", "Plastic", false);
+$toy2 = new Toy("Bone", 10, "All", "https://picsum.photos/200/150?random=3", "Plastic", false);
 
 
 
 $catalog->addProduct($food1);
+$catalog->addProduct($toy2);
 $catalog->addProduct($toy1);
+$catalog->addProduct($food1);
 $catalog->addProduct($toy2);
+$catalog->addProduct($toy1);
+$catalog->addProduct($food1);
 $catalog->addProduct($toy2);
+$catalog->addProduct($toy1);
+$catalog->addProduct($food1);
 $catalog->addProduct($toy2);
-$catalog->addProduct($toy2);
-$catalog->addProduct($toy2);
+$catalog->addProduct($toy1);
 
 
 
@@ -51,7 +58,7 @@ $catalog->addProduct($toy2);
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">AmazzaCheShop</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -90,9 +97,7 @@ $catalog->addProduct($toy2);
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
+              
             </ul>
             <form class="d-flex" role="search">
               <input
@@ -110,17 +115,18 @@ $catalog->addProduct($toy2);
       </nav>
     </header>
 
-    <main class="p-2">
-        <div class="container bg-success h-100 w-100">
-            <div class="row row-cols-lg-4">
-                <?php foreach ($catalog->getAllProduct() as $key => $value) {?>
+    <main>
+        <div class="container h-100 w-100 justify-content-center pt-5 pb-5">
+            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-1 g-4">
+                <?php foreach ($catalog->getAllProduct() as $product) {?>
                     <div class="col">
-                        <div class="card" style="width: 20rem;" >
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card h-100 w-100">
+                            <img src="<?= $product->getImage()?>" class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title fw-bold"><?= $product->getName() ?></h5>
+                                <span class="prod-price"><?= $product->getPrice()?></span>
+                                <p class="card-text"><?= $product->getDescription()?></p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
