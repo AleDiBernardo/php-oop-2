@@ -1,0 +1,19 @@
+:root{
+    --header-heigth: 60px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+main{
+    width: 100%;
+    height: calc(100vh - var(--header-heigth));
+}
+
+nav{
+    height: var(--header-heigth);
+}

@@ -103,5 +103,7 @@ class Product {
     {
         $this->description = $description;
 
+    
     }
+
 }
