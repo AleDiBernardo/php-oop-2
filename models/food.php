@@ -7,9 +7,9 @@ class Food extends Product{
     private string $expiration;
     private int $weigth_gr;
 
-    public function __construct(string $_name, int $_price, string $_category, string $_expiration, string $_weigth_gr)
+    public function __construct(string $_name, int $_price, string $_category,string $_image, string $_expiration, string $_weigth_gr)
     {
-        parent::__construct($_name, $_price, $_category);
+        parent::__construct($_name, $_price, $_category,$_image);
 
         $this->expiration = $_expiration;
         $this->weigth_gr = $_weigth_gr;

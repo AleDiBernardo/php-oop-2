@@ -7,14 +7,17 @@ class Product {
     private int $price;
     private string $description;
     private string $category;
-    private array $validCategory = ["Gatti","Cani"];
+    private string $image;
+    private array $validCategory = ["Gatti","Cani","All"];
 
 
 
-    public function __construct(string $_name, int $_price, string $_category)
+    public function __construct(string $_name, int $_price, string $_category, string $_image)
     {
         $this->name = $_name;
         $this->price = $_price;
+        $this->image = $_image;
+
         $this->setCategory($_category);
     }
 
